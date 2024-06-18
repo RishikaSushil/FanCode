@@ -27,6 +27,10 @@ if __name__ == '__main__':
             print("This user is in FanCode! User ID: " + str(user_count))
 
             todos = requests.get(url + '/todos?userId=' + str(user_count)).json()
+
+            if (todos is None):
+                print("This user has no tasks!")
+
             percent_tasks_completed = percentTasksCompleted(todos)
             if percent_tasks_completed > 50:
                 print("This user has completed more than 50/% their tasks!")
