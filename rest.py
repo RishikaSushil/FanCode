@@ -22,6 +22,14 @@ if __name__ == '__main__':
     while user_data:
         if isInFanCode(user_data['address']['geo']):
             print("This user is in FanCode! User ID: " + str(user_count))
+
+            todos = requests.get(url + '/todos?userId=' + str(user_count)).json()
+            percent_tasks_completed = percentTasksCompleted(todos)
+            if percent_tasks_completed > 50:
+                print("This user has completed more than 50/% their tasks!")
+            else:
+                print("This user has not completed more than 50/% their tasks!")
+
         user_count += 1
         user_data = requests.get(url + '/users/' + str(user_count)).json()
 
