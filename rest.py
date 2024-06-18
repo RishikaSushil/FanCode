@@ -3,7 +3,10 @@
 import requests
 
 def isInFanCode(geo):
-    if float(geo['lat']) > -40 and float(geo['lat']) < 5 and float(geo['lng']) > 5 and float(geo['lng']) < 100:
+    if float(geo['lat']) > -40 and \
+       float(geo['lat']) < 5 and \
+       float(geo['lng']) > 5 and \
+       float(geo['lng']) < 100:
         return True
     return False
 
